@@ -2,11 +2,15 @@ const express = require("express");
 
 const serverConfig = require("./config/server.config");
 
+const apiRouter = require("./routes/index");
+
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.text());
+
+app.use("/api", apiRouter);
 
 app.get("/ping", (req, res) => {
   return res.json({ message: "Server is Alive" });
