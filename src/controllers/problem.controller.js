@@ -1,19 +1,31 @@
-function pingProblemServices(req, res) {}
+function pingProblemServices(req, res) {
+  return res.status(200).json({ message: "Server is Alive" });
+}
 
 // Get All Problems
-function getProblems(req, res) {}
+function getProblems(req, res) {
+  return res.status(501).json({ message: "Not implemented" });
+}
 
 // Create Problem
-function createProblem(req, res) {}
+function createProblem(req, res) {
+  return res.status(501).json({ message: "Not implemented" });
+}
 
 // Get Spicific Problem
-function getSpecificProblem(req, res) {}
+function getSpecificProblem(req, res) {
+  return res.status(501).json({ message: "Not implemented" });
+}
 
 // Update Problem
-function updateProblem(req, res) {}
+function updateProblem(req, res) {
+  return res.status(501).json({ message: "Not implemented" });
+}
 
 // deleteProblem
-function deleteProblem(req, res) {}
+function deleteProblem(req, res) {
+  return res.status(501).json({ message: "Not implemented" });
+}
 
 // exports
 module.exports = {

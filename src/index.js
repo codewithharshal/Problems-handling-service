@@ -13,7 +13,7 @@ app.use(express.text());
 app.use("/api", apiRouter);
 
 app.get("/ping", (req, res) => {
-  return res.json({ message: "Server is Alive" });
+  return res.status(200).json({ message: "Server is Alive" });
 });
 
 app.listen(serverConfig.port, () => {
