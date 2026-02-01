@@ -1,42 +1,53 @@
 const { StatusCodes } = require("http-status-codes");
+const NotImplemented = require("../errors/notImplemented.error");
 
 function pingProblemServices(req, res) {
   return res.status(StatusCodes.OK).json({ message: "Server is Alive" });
 }
 
 // Get All Problems
-function getProblems(req, res) {
-  return res
-    .status(StatusCodes.NOT_IMPLEMENTED)
-    .json({ message: "Not implemented" });
+function getProblems(req, res, next) {
+  try {
+    throw new NotImplemented("Add Problem");
+  } catch (error) {
+    next(error);
+  }
 }
 
 // Create Problem
-function createProblem(req, res) {
-  return res
-    .status(StatusCodes.NOT_IMPLEMENTED)
-    .json({ message: "Not implemented" });
+function createProblem(req, res, next) {
+  try {
+    throw new NotImplemented("Add Problem");
+  } catch (error) {
+    next(error);
+  }
 }
 
 // Get Spicific Problem
-function getSpecificProblem(req, res) {
-  return res
-    .status(StatusCodes.NOT_IMPLEMENTED)
-    .json({ message: "Not implemented" });
+function getSpecificProblem(req, res, next) {
+  try {
+    throw new NotImplemented("Add Problem");
+  } catch (error) {
+    next(error);
+  }
 }
 
 // Update Problem
-function updateProblem(req, res) {
-  return res
-    .status(StatusCodes.NOT_IMPLEMENTED)
-    .json({ message: "Not implemented" });
+function updateProblem(req, res, next) {
+  try {
+    throw new NotImplemented("Add Problem");
+  } catch (error) {
+    next(error);
+  }
 }
 
 // deleteProblem
-function deleteProblem(req, res) {
-  return res
-    .status(StatusCodes.NOT_IMPLEMENTED)
-    .json({ message: "Not implemented" });
+function deleteProblem(req, res, next) {
+  try {
+    throw new NotImplemented("Add Problem");
+  } catch (error) {
+    next(error);
+  }
 }
 
 // exports
