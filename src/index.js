@@ -1,4 +1,5 @@
 const express = require("express");
+const { StatusCodes } = require("http-status-codes");
 
 const serverConfig = require("./config/server.config");
 
@@ -13,7 +14,7 @@ app.use(express.text());
 app.use("/api", apiRouter);
 
 app.get("/ping", (req, res) => {
-  return res.status(200).json({ message: "Server is Alive" });
+  return res.status(StatusCodes.OK).json({ message: "Server is Alive" });
 });
 
 app.listen(serverConfig.port, () => {
