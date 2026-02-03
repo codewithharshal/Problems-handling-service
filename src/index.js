@@ -1,8 +1,9 @@
 const express = require("express");
 const { StatusCodes } = require("http-status-codes");
 
-const serverConfig = require("./config/server.config");
+const { port } = require("./config/server.config");
 const errorHandler = require("./utils/errorHandler");
+const connectToDB = require("./config/db.config");
 
 const apiRouter = require("./routes/index");
 
@@ -21,6 +22,8 @@ app.get("/ping", (req, res) => {
 // last middlewere
 app.use(errorHandler);
 
-app.listen(serverConfig.port, () => {
-  console.log(`Server is running on port ${serverConfig.port}`);
+app.listen(port, async () => {
+  console.log(`Server is running on port ${port}`);
+  await connectToDB();
+  console.log("Successfull connected to DB");
 });
