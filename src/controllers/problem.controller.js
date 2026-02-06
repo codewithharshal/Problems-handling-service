@@ -10,9 +10,15 @@ function pingProblemServices(req, res) {
 }
 
 // Get All Problems
-function getProblems(req, res, next) {
+async function getProblems(req, res, next) {
   try {
-    throw new NotImplemented("Add Problem");
+    const response = await problemService.getAllProblems();
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      message: "Successfully fetch all the product",
+      error: {},
+      data: response,
+    });
   } catch (error) {
     next(error);
   }
@@ -36,7 +42,7 @@ async function createProblem(req, res, next) {
 // Get Spicific Problem
 function getSpecificProblem(req, res, next) {
   try {
-    throw new NotImplemented("Add Problem");
+    throw new NotImplemented("get specific problem");
   } catch (error) {
     next(error);
   }
@@ -45,7 +51,7 @@ function getSpecificProblem(req, res, next) {
 // Update Problem
 function updateProblem(req, res, next) {
   try {
-    throw new NotImplemented("Add Problem");
+    throw new NotImplemented("update Problme");
   } catch (error) {
     next(error);
   }
@@ -54,7 +60,7 @@ function updateProblem(req, res, next) {
 // deleteProblem
 function deleteProblem(req, res, next) {
   try {
-    throw new NotImplemented("Add Problem");
+    throw new NotImplemented("Delete Problem");
   } catch (error) {
     next(error);
   }
