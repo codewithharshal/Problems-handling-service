@@ -29,6 +29,13 @@ allowedTransports.push(
   }),
 );
 
+// The below transport configuration enables logging in files
+allowedTransports.push(
+  new winston.transports.File({
+    filename: `app.log`,
+  }),
+);
+
 const logger = winston.createLogger({
   format: winston.format.combine(
     winston.format.timestamp({
