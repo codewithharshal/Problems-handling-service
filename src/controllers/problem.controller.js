@@ -40,9 +40,15 @@ async function createProblem(req, res, next) {
 }
 
 // Get Spicific Problem
-function getSpecificProblem(req, res, next) {
+async function getSpecificProblem(req, res, next) {
   try {
-    throw new NotImplemented("get specific problem");
+    const problem = await problemService.getProblme(req.params.id);
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      error: {},
+      message: "Successfully fetch a problme",
+      data: problem,
+    });
   } catch (error) {
     next(error);
   }
