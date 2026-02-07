@@ -1,4 +1,4 @@
-const Notfound = require("../errors/notImplemented.error");
+const Notfound = require("../errors/notfound.error");
 const { Problem } = require("../models/index");
 
 class ProblemRepository {
@@ -31,10 +31,11 @@ class ProblemRepository {
 
   async getProblem(id) {
     try {
-      const problem = await Problem.findById({ id });
+      const problem = await Problem.findById(id);
       if (!problem) {
         throw new Notfound("Problem", id);
       }
+      return problem;
     } catch (error) {
       console.log(error);
       throw error;
@@ -43,10 +44,26 @@ class ProblemRepository {
 
   async deleteProblem(id) {
     try {
-      const problem = await Problem.findByIdAndDelete({ id });
+      const problem = await Problem.findByIdAndDelete(id);
       if (!problem) {
         throw new Notfound("Problem", id);
       }
+      return problem;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  async updateProblem(id, updatedData) {
+    try {
+      const updatedProblem = await Problem.findByIdAndUpdate(id, updatedData, {
+        new: true,
+      });
+      if (!updatedProblem) {
+        throw new Notfound("Problem", id);
+      }
+      return updatedProblem;
     } catch (error) {
       console.log(error);
       throw error;
