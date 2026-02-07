@@ -1,4 +1,6 @@
 const winston = require("winston");
+const { LOG_DB_URL } = require("./server.config");
+const winstonMongoDB = require("winston-mongodb");
 
 const allowedTransports = [];
 
@@ -15,6 +17,15 @@ allowedTransports.push(
         (log) => `${log.timestamp}[${log.level}]:${log.message}`,
       ),
     ),
+  }),
+);
+
+// The below transport configuration enables logging in mongodb database
+allowedTransports.push(
+  new winston.transports.MongoDB({
+    level: "error",
+    db: LOG_DB_URL,
+    collection: "LogRecord",
   }),
 );
 
